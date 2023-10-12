@@ -1,0 +1,13 @@
+name: rpm-update-history
+version: 0.1.0
+
+authors:
+  - Rodrigo de Avila <rdeavila@gmail.com>
+
+targets:
+  rpm-update-history:
+    main: src/rpm-update-history.cr
+
+crystal: '>= 1.10.0'
+
+license: MIT
