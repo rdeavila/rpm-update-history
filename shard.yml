@@ -2,7 +2,7 @@ name: rpm-update-history
 version: 0.1.0
 
 authors:
-  - Rodrigo de Avila <rdeavila@gmail.com>
+  - Rodrigo de Avila <me@rda.run>
 
 targets:
   rpm-update-history:

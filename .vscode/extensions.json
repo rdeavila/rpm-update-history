@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "crystal-lang-tools.crystal-lang",
+        "davidanson.vscode-markdownlint",
+        "stkb.rewrap",
+        "editorconfig.editorconfig"
+    ]
+}
