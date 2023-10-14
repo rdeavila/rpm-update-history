@@ -1,4 +1,7 @@
-.PHONY: build pack run
+.PHONY: clean build pack run
+
+clean:
+	@rm -rf bin/
 
 build:
 	@docker run --rm -it -v .:/workspace -w /workspace crystallang/crystal:latest-alpine shards build --release --no-debug --progress --static
@@ -6,6 +9,3 @@ build:
 pack:
 	@nfpm pkg --packager deb --target ./bin/
 	@nfpm pkg --packager rpm --target ./bin/
-
-run:
-	@shards run -- $(filter-out $@,$(MAKECMDGOALS))
