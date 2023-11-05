@@ -3,6 +3,9 @@ require "transactions"
 require "helper"
 
 module Rpm::Update::History
+  pm = Helper.package_binary
+  Helper.package_manager_installed? pm
+
   VERSION = "0.1.0"
   used_subcommand = false
 
@@ -11,21 +14,24 @@ module Rpm::Update::History
 
     opts.on("-b", "--build", "Compile history info") do
       used_subcommand = true
-      Helper.dnf_installed?
-      puts Transactions.list_transactions
+      puts Transactions.list_transactions pm
     end
 
-    opts.on("-g", "--graph", "Create statistic graphs") do
-      used_subcommand = true
-    end
+    # opts.on("-g", "--graph", "Create statistic graphs") do
+    #   used_subcommand = true
+    # end
 
-    opts.on("-l", "--list", "List compiled statistics")  do
-      used_subcommand = true
-    end
+    # opts.on("-l", "--list", "List compiled statistics")  do
+    #   used_subcommand = true
+    # end
 
-    opts.on("-u", "--upload", "Upload data to a central repository")  do
-      used_subcommand = true
-    end
+    # opts.on("-u", "--upload", "Upload data to a central repository")  do
+    #   used_subcommand = true
+    # end
+
+    # opts.on("-v", "--version", "Show version number")  do
+    #   used_subcommand = true
+    # end
 
     opts.on("-h", "--help", "Prints this help") do
       used_subcommand = true
