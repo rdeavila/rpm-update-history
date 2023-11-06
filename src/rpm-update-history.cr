@@ -14,7 +14,8 @@ module Rpm::Update::History
 
     opts.on("-b", "--build", "Compile history info") do
       used_subcommand = true
-      puts Transactions.list_transactions pm
+      # puts Transactions.list_transactions pm
+      Transactions.info pm, 1
     end
 
     # opts.on("-g", "--graph", "Create statistic graphs") do
