@@ -8,6 +8,10 @@ targets:
   rpm-update-history:
     main: src/rpm-update-history.cr
 
+dependencies:
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+
 crystal: '>= 1.10.0'
 
 license: MIT

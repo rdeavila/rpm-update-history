@@ -16,3 +16,7 @@ license: "MIT"
 contents:
   - src: ./bin/rpm-update-history
     dst: /usr/bin/ruh
+  - src: ./db/ruh.db
+    dst: /var/lib/ruh/ruh.db
+    file_info:
+      mode: 0644

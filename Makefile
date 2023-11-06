@@ -2,6 +2,7 @@
 
 clean:
 	@rm -rf bin/
+	@truncate -s0 db/ruh.db
 
 build:
 	@docker run --rm -it -v .:/workspace -w /workspace crystallang/crystal:latest-alpine shards build --release --no-debug --progress --static
