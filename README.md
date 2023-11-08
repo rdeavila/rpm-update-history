@@ -47,11 +47,12 @@ sudo yum install -y nfpm
 ### Development commands
 
 * `make clean`: remove compiled binaries and packages, and reset database file
+* `make docker`: build a docker image to statically compile the project
 * `make build`: build a production-ready binary on `./bin` directory
 * `make pkg`: create new `.deb` and `.rpm` packages
 * `shards install`: install any new shard dependency
-* `shards run`: run the project. To pass the `rpm-update-history` commands, use `--`. Ex.:
-  `shards run -- --build`
+* `shards run`: run the project. To pass the `rpm-update-history` commands, use
+  `--`. Ex.: `shards run -- --build`
 
 ## Contributing
 
