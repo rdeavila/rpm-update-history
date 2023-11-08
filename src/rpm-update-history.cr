@@ -1,12 +1,15 @@
+require "dotenv"
+require "helper"
 require "option_parser"
 require "transactions"
-require "helper"
 
 module Rpm::Update::History
-  pm = Helper.package_binary
-  Helper.package_manager_installed? pm
+  VERSION = "0.1"
 
-  VERSION = "0.1.0"
+  pm = Helper.package_binary
+  Dotenv.load
+  Helper.package_manager_installed? pm
+  Helper.db_check
   used_subcommand = false
 
   parser = OptionParser.new do |opts|
@@ -14,8 +17,7 @@ module Rpm::Update::History
 
     opts.on("-b", "--build", "Compile history info") do
       used_subcommand = true
-      # puts Transactions.list_transactions pm
-      Transactions.info pm, 1
+      Transactions.build pm
     end
 
     # opts.on("-g", "--graph", "Create statistic graphs") do

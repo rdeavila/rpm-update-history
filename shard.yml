@@ -11,6 +11,8 @@ targets:
 dependencies:
   sqlite3:
     github: crystal-lang/crystal-sqlite3
+  dotenv:
+    github: drum445/dotenv
 
 crystal: '>= 1.10.0'
 
