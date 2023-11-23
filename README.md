@@ -1,5 +1,10 @@
 # rpm-update-history
 
+[![OpenSSF Best
+Practices](https://www.bestpractices.dev/projects/8070/badge)](https://www.bestpractices.dev/projects/8070)
+[![CalVer](https://img.shields.io/badge/CalVer-YY.MM.MICRO-22bfda.svg 'CalVer
+Format')](https://calver.org)
+
 The RPM Update History project aims to track package history on RPM systems,
 compiling data on the number of updates and installs. Designed to enhance system
 reliability, this initiative collects and centralizes information, providing
@@ -46,13 +51,19 @@ sudo yum install -y nfpm
 
 ### Development commands
 
-* `make clean`: remove compiled binaries and packages, and reset database file
-* `make docker`: build a docker image to statically compile the project
-* `make build`: build a production-ready binary on `./bin` directory
-* `make pkg`: create new `.deb` and `.rpm` packages
+While modifying the source code:
+
 * `shards install`: install any new shard dependency
 * `shards run`: run the project. To pass the `rpm-update-history` commands, use
   `--`. Ex.: `shards run -- --build`
+
+To create the binary and distribute
+
+* `make clean`: remove compiled binaries and packages, and reset database file
+* `make docker`: build a docker image to statically compile the project
+* `make build`: build a production-ready binary on `./bin` directory
+* `make man`: compile the `man ruh` manpage
+* `make pkg`: create new `.deb` and `.rpm` packages
 
 ## Contributing
 
