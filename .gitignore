@@ -4,3 +4,4 @@
 /.shards/
 *.dwarf
 db/ruh.db
+doc/ruh.1.gz
