@@ -1,26 +1,26 @@
 ---
-title: RUH
+title: rpm-update-history
 section: 1
 header: RPM Update History
 footer: rpm-update-history 23.11.1
-date: November 13, 2023
+date: November 23, 2023
 ---
 
 # NAME
 
-ruh - Compile data on the number of updates and installs using yum / dnf
-transaction info.
+**rpm-update-history**: Compile data on the number of updates and installs using
+yum / dnf transaction info.
 
 # SYNOPSIS
 
-**ruh** [*OPTION*]
+**rpm-update-history** [*OPTION*]
 
 # DESCRIPTION
 
-**ruh** aims to track package history on RPM systems, compiling data on the
-number of updates and installs. Designed to enhance system reliability, this
-initiative collects and centralizes information, providing valuable insights
-into the evolution of packages.
+**rpm-update-history** aims to track package history on RPM systems, compiling
+data on the number of updates and installs. Designed to enhance system
+reliability, this initiative collects and centralizes information, providing
+valuable insights into the evolution of packages.
 
 # OPTIONS
 
@@ -30,6 +30,10 @@ into the evolution of packages.
 **-l**, **\--list**
 : List all compiled statistics
 
+**-u**, **\--upload**
+: Upload data to a central repository. See the **INTEGRATIONS** section to
+configure a destination.
+
 **-v**, **\--version**
 : Show version number
 
@@ -38,12 +42,13 @@ into the evolution of packages.
 
 # FILES
 
-**/etc/ruh.conf** Configuration file. Normally `ruh` uses sane defaults, but if
-you want to activate any option or integration, go to this file, uncomment the
+**/etc/rpm-update-history.conf**
+Configuration file. Normally `rpm-update-history` uses sane defaults, but if you
+want to activate any option or integration, go to this file, uncomment the
 section and modify it. Useful during development, since you can set another
 parameters for this environment.
 
-**/var/lib/ruh/ruh.db**
+**/var/lib/rpm-update-history/ruh.db**
 **sqlite3**(1) database file. Only remove this if you want to start again your
 findings, like recalculate all transactions, or send all transaction data to
 your integration again.
