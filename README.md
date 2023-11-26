@@ -62,8 +62,8 @@ To create the binary and distribute
 * `make clean`: remove compiled binaries and packages, and reset database file
 * `make docker`: build a docker image to statically compile the project
 * `make build`: build a production-ready binary on `./bin` directory
-* `make man`: compile the `man ruh` manpage
-* `make pkg`: create new `.deb` and `.rpm` packages
+* `make man`: compile the `man rpm-update-history` manpage
+* `make pkg`: create new `.rpm` package
 
 ## Contributing
 
@@ -72,7 +72,3 @@ To create the binary and distribute
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-## Contributors
-
-* [Rodrigo de Avila](https://github.com/rdeavila) - creator and maintainer

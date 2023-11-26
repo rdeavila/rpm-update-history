@@ -17,16 +17,20 @@ homepage: "https://github.com/rdeavila/rpm-update-history"
 license: "MIT"
 contents:
   - src: ./doc/ruh.1.gz
-    dst: /usr/share/man/man1/ruh.1.gz
+    dst: /usr/share/man/man1/rpm-update-history.1.gz
   - src: ./conf/ruh.conf
-    dst: /etc/ruh.conf
+    dst: /etc/rpm-update-history.conf
+    type: config|noreplace
   - src: ./bin/rpm-update-history
+    dst: /usr/bin/rpm-update-history
+  - src: /usr/bin/rpm-update-history
     dst: /usr/bin/ruh
-  - dst: /var/lib/ruh
+    type: symlink
+  - dst: /var/lib/rpm-update-history
     type: dir
     file_info:
       mode: 0666
   - src: ./db/ruh.db
-    dst: /var/lib/ruh/ruh.db
+    dst: /var/lib/rpm-update-history/ruh.db
     file_info:
       mode: 0666

@@ -9,6 +9,8 @@ targets:
     main: src/main.cr
 
 dependencies:
+  crest:
+    github: mamantoha/crest
   sqlite3:
     github: crystal-lang/crystal-sqlite3
   tallboy:
