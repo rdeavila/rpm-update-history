@@ -1,6 +1,7 @@
 require "helper"
 require "option_parser"
 require "transactions"
+require "integration/influxdb"
 
 module Rpm::Update::History
   VERSION        = "23.11.1"
@@ -8,6 +9,7 @@ module Rpm::Update::History
   PACKAGE_BINARY = Helper.package_binary
   used_subcommand = false
 
+  # Helper.user_check
   Helper.db_check
 
   parser = OptionParser.new do |opts|
@@ -27,9 +29,10 @@ module Rpm::Update::History
       Transactions.list
     end
 
-    # opts.on("-u", "--upload", "Upload data to a central repository")  do
-    #   used_subcommand = true
-    # end
+    opts.on("-u", "--upload", "Upload data to a central repository")  do
+      used_subcommand = true
+      Integration::InfluxDB.send
+    end
 
     opts.on("-v", "--version", "Show version number") do
       used_subcommand = true
