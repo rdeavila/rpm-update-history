@@ -63,7 +63,7 @@ To create the binary and distribute
 * `make docker`: build a docker image to statically compile the project
 * `make build`: build a production-ready binary on `./bin` directory
 * `make man`: compile the `man rpm-update-history` manpage
-* `make pkg`: create new `.rpm` package
+* `make rpm`: create new `.rpm` package
 
 ## Contributing
 
