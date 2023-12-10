@@ -1,15 +1,14 @@
+require "config"
 require "helper"
 require "option_parser"
 require "transactions"
 require "integration/influxdb"
 
 module Rpm::Update::History
-  VERSION        = "23.11.1"
-  CONFIG         = Helper.load_config
-  PACKAGE_BINARY = Helper.package_binary
+  VERSION = "23.12.1"
   used_subcommand = false
 
-  # Helper.user_check
+  Helper.user_check
   Helper.db_check
 
   parser = OptionParser.new do |opts|
@@ -17,7 +16,7 @@ module Rpm::Update::History
 
     opts.on("-b", "--build", "Compile history info") do
       used_subcommand = true
-      Transactions.build PACKAGE_BINARY
+      Transactions.build
     end
 
     # opts.on("-g", "--graph", "Create statistic graphs") do
@@ -29,9 +28,17 @@ module Rpm::Update::History
       Transactions.list
     end
 
-    opts.on("-u", "--upload", "Upload data to a central repository")  do
+    opts.on("-u", "--upload", "Upload data to a central repository") do
       used_subcommand = true
-      Integration::InfluxDB.send
+
+      case Config.integration
+      when "influxdb"
+        Integration::InfluxDB.send
+      else
+        STDERR.print "ERROR: ".colorize :red
+        STDERR.puts "No integration configured. Run 'man rpm-update-history' to see how to configure one."
+        exit 1
+      end
     end
 
     opts.on("-v", "--version", "Show version number") do

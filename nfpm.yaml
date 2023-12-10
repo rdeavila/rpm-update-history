@@ -1,7 +1,7 @@
 name: "rpm-update-history"
 arch: "amd64"
 platform: "linux"
-version: "23.11.1"
+version: "23.12.1"
 release: "1"
 epoch: "1"
 section: "default"

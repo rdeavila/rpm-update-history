@@ -2,7 +2,7 @@
 title: rpm-update-history
 section: 1
 header: RPM Update History
-footer: rpm-update-history 23.11.1
+footer: rpm-update-history 23.12.1
 date: November 23, 2023
 ---
 
@@ -55,7 +55,12 @@ your integration again.
 
 # INTEGRATIONS
 
-TODO: Write this section
+## InfluxDB
+
+The integration with InfluxDB enables the storage and retrieval of package data
+in an easy-to-use manner. To send data to InfluxDB, modify the configuration
+file to include a **\[influxdb\]** block. Typically, the configuration file contains a
+commented-out example block; simply uncomment this and edit the parameters.
 
 # BUGS
 

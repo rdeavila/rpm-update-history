@@ -1,5 +1,7 @@
 /docs/
-/lib/
+/lib/*
+!/lib/integration
+!/lib/*.cr
 /bin/
 /.shards/
 *.dwarf
