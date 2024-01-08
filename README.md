@@ -62,6 +62,7 @@ To create the binary and distribute
 * `make clean`: remove compiled binaries and packages, and reset database file
 * `make docker`: build a docker image to statically compile the project
 * `make build`: build a production-ready binary on `./bin` directory
+* `make build-static`: same as `make build`, but statically linked
 * `make man`: compile the `man rpm-update-history` manpage
 * `make rpm`: create new `.rpm` package
 

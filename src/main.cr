@@ -5,7 +5,7 @@ require "transactions"
 require "integration/influxdb"
 
 module Rpm::Update::History
-  VERSION = "23.12.1"
+  VERSION = "24.01.0"
   used_subcommand = false
 
   Helper.user_check
