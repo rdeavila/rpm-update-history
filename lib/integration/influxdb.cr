@@ -28,22 +28,28 @@ module Integration::InfluxDB
           headers["Content-Type"]  = "text/plain; charset=utf-8"
           headers["Accept"]        = "application/json"
 
-          response = HTTP::Client.post(Config.influxdb_host_url, headers: headers, body: metric)
+          begin
+            response = HTTP::Client.post(Config.influxdb_host_url, headers: headers, body: metric)
 
-          case response.status_code
-          when 204
-            sent_transactions << transaction_id
-          when 401
+            case response.status_code
+            when 204
+              sent_transactions << transaction_id
+            when 401
+              STDERR.print "ERROR: ".colorize :red
+              STDERR.puts "Connection to InfluxDB was not authorized. Exiting."
+              exit 1
+            when 404
+              STDERR.print "ERROR: ".colorize :red
+              STDERR.puts "The InfluxDB server don't have the configured bucket. Exiting."
+              exit 1
+            else
+              STDERR.print "ERROR: ".colorize :red
+              STDERR.puts response.body
+              exit 1
+            end
+          rescue e
             STDERR.print "ERROR: ".colorize :red
-            STDERR.puts "Connection to InfluxDB was not authorized. Exiting."
-            exit 1
-          when 404
-            STDERR.print "ERROR: ".colorize :red
-            STDERR.puts "The InfluxDB server don't have the configured bucket. Exiting."
-            exit 1
-          else
-            STDERR.print "ERROR: ".colorize :red
-            STDERR.puts response.body
+            STDERR.puts e.message
             exit 1
           end
         end
