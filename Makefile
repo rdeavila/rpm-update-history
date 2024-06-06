@@ -1,4 +1,4 @@
-.PHONY: clean docker build build-static rpm man
+.PHONY: clean docker build dev build-static rpm man
 
 clean:
 	@rm -rf bin/
@@ -11,6 +11,9 @@ docker:
 
 build:
 	@docker run --rm -it -v .:/workspace -w /workspace ruh-builder shards build --release --no-debug --progress
+
+dev:
+	@docker run --rm -it -v .:/workspace -w /workspace ruh-builder shards build
 
 build-static:
 	@docker run --rm -it -v .:/workspace -w /workspace ruh-builder shards build --release --no-debug --progress --static
