@@ -2,8 +2,9 @@
 
 [![OpenSSF Best
 Practices](https://www.bestpractices.dev/projects/8070/badge)](https://www.bestpractices.dev/projects/8070)
-[![CalVer](https://img.shields.io/badge/CalVer-YY.MM.MICRO-22bfda.svg 'CalVer
-Format')](https://calver.org)
+[![SemVer](https://img.shields.io/badge/SemVer-2.0.0-22bfda.svg 'SemVer
+Format')](https://semver.org) [![Contributor
+Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 The RPM Update History project aims to track package history on RPM systems,
 compiling data on the number of updates and installs. Designed to enhance system
