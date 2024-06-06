@@ -2,8 +2,8 @@
 title: rpm-update-history
 section: 1
 header: RPM Update History
-footer: rpm-update-history 24.04.0
-date: April 03, 2024
+footer: rpm-update-history 0.1.0
+date: June 05, 2024
 ---
 
 # NAME

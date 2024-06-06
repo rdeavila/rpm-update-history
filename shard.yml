@@ -1,5 +1,5 @@
 name: rpm-update-history
-version: 24.04.0
+version: 0.1.0
 
 authors:
   - Rodrigo de Avila <me@rda.run>
