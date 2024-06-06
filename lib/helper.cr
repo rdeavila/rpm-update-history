@@ -14,16 +14,22 @@ module Helper
   end
 
   def self.db_check
-    DB.open Config.db_path do |db|
-      test = db.exec "CREATE TABLE IF NOT EXISTS transactions (
-        id INTEGER PRIMARY KEY,
-        created_at TIMESTAMP,
-        return_code TEXT,
-        installed INTEGER,
-        upgraded INTEGER,
-        removed INTEGER,
-        sent BOOLEAN
-      );"
+    begin
+      DB.open Config.db_path do |db|
+        test = db.exec "CREATE TABLE IF NOT EXISTS transactions (
+          id INTEGER PRIMARY KEY,
+          created_at TIMESTAMP,
+          return_code TEXT,
+          installed INTEGER,
+          upgraded INTEGER,
+          removed INTEGER,
+          sent BOOLEAN
+        );"
+      end
+    rescue DB::ConnectionRefused
+      STDERR.print "ERROR: ".colorize :red
+      STDERR.puts "problem on database #{Config.db_path}: connection refused. Exiting."
+      exit 1
     end
   end
 
