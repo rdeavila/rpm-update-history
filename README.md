@@ -13,20 +13,25 @@ valuable insights into the evolution of packages.
 
 ## Installation
 
-TODO: Write installation instructions here
+```bash
+sudo dnf localinstall -y https://rpm.rda.run/rpm-rda-run-1.0-1.noarch.rpm
+sudo dnf install -y rpm-update-history
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+sudo ruh -b
+```
 
 ## Development
 
 To make changes on this project, you need:
 
-### Crystal
+### Golang
 
 ```bash
-curl -fsSL https://crystal-lang.org/install.sh | sudo bash
+sudo dnf install -y go
 ```
 
 ### Podman
